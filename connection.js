@@ -1,10 +1,11 @@
 const mysql = require('mysql')
+require('dotenv').config()
 
 const mysqlConnection = mysql.createConnection({
-    host : 'den1.mysql5.gear.host',
-    user : 'webshopspring',
-    password : 'Gj58~!F9ySUi',
-    database : 'WebShopSpring',
+    host : process.env.DB_HOST,
+    user : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : process.env.DB_DATABASE,
     multipleStaements : true
 });
 
@@ -14,6 +15,7 @@ mysqlConnection.connect((err) =>{
         console.log('connected')
     } else {
         console.log('Connection Failed')
+
     }
 });
 
